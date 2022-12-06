@@ -2,7 +2,7 @@
   "name": "iqr-app",
   "version": "0.0.1",
   "description": "A Quasar Project",
-  "productName": "iqr.ro",
+  "productName": "IQR.ro",
   "author": "BMD Media",
   "private": true,
   "scripts": {
