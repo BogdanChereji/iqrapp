@@ -114,7 +114,7 @@ export default {
       model: null,
       options: [
         "Luni",
-        "Marți",
+        "Marti",
         "Miercuri",
         "Joi",
         "Vineri",
