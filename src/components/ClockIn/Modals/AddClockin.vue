@@ -54,6 +54,7 @@
               map-options
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
               ref="task"
+              use-chips
               multiple
               option-value="id"
               option-label="nume"
