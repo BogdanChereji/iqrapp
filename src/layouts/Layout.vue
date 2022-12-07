@@ -43,7 +43,18 @@
     <q-footer>
       <q-tabs inline-label class="bg-primary text-white shadow-2">
         <q-route-tab to="/" icon="dashboard" label="Dashboard" />
-        <q-route-tab to="/employee" icon="badge" label="Interfata angajat" />
+        <q-route-tab
+          to="/employee"
+          icon="badge"
+          label="Interfata angajat"
+          v-if="!admin"
+        />
+        <q-route-tab
+          to="/raportemp"
+          icon="badge"
+          label="Raport angajati"
+          v-if="admin"
+        />
         <q-route-tab>
           <q-btn-dropdown color="primary" icon="reorder" label="Nomenclatoare">
             <q-list>
