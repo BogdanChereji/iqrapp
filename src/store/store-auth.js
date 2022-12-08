@@ -57,7 +57,7 @@ const actions = {
       //Admin Check
       if (user) {
         let userId = firebaseAuth.currentUser.uid;
-        let adminId = "6nAocCTTjzMNTDzQvrgXHpQY98a2";
+        let adminId = "TwBt3ylOaHOh5hgRg41wnTauErt2";
         if (userId == adminId) {
           commit("setAdmin", true);
           LocalStorage.set("admin", true);
