@@ -1,0 +1,10 @@
+1.Configurare baza de date sistem login/ register -> 1 1/2 ore
+2.Configurare baza de date sistem Clienti/ Task/ Clock in -> 2 ore 
+3.Configurare mediu de lucru -> 1 1/2 ore 
+Creare/inserare/editare tabele clienti -> 2 1/2 ore 
+Creare/inserare/editare tabele task -> 1 ora 
+Creare/ inserare/ editare tabel pontaj -> 3 ore 
+Export tabele in excel -> 2 ore 
+Creare Mod admin -> 1 ora 
+Limitare acces utilizator normal -> 2 ore. 
+Urcare server -> 3 ore 
