@@ -2,9 +2,7 @@ const routes = [
   {
     path: "/employee",
     component: () => import("layouts/Layout.vue"),
-    children: [
-      { path: "", component: () => import("pages/PageDashboard.vue") },
-    ],
+    children: [{ path: "", component: () => import("pages/PageEmployee.vue") }],
   },
 
   {
