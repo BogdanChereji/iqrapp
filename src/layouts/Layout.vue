@@ -56,7 +56,7 @@
           v-if="admin"
         />
         <q-route-tab>
-          <q-btn-dropdown color="primary" icon="reorder" label="Nomenclatoare">
+          <q-btn-dropdown color="primary" icon="business" label="Nomenclatoare">
             <q-list>
               <q-item clickable v-close-popup to="/clientstable">
                 <q-item-section>
@@ -119,7 +119,7 @@
               </q-item>
               <q-item to="/clientstable" exact clickable>
                 <q-item-section avatar>
-                  <q-icon name="groups" />
+                  <q-icon name="business" />
                 </q-item-section>
                 <q-item-section>
                   <q-item-label>Clienți</q-item-label>
