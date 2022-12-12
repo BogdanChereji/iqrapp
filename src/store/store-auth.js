@@ -69,7 +69,9 @@ const actions = {
         dispatch("clients/fbReadData", null, { root: true });
         dispatch("tasks/fbReadData", null, { root: true });
         dispatch("clocks/fbReadData", null, { root: true });
+        dispatch("employees/fbReadData", null, { root: true });
       } else {
+        commit("employees/clearEmployees", null, { root: true });
         commit("clocks/clearClocks", null, { root: true });
         commit("clients/clearClients", null, { root: true });
         commit("tasks/clearTasks", null, { root: true });

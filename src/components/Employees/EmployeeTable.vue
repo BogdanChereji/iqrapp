@@ -1,14 +1,16 @@
 <template>
-  <div class="q-pa-md">
+  <div>
     <q-table
+      class="q-table__container q-table--horizontal-separator column no-wrap q-table__card q-table--no-wrap no-shadow"
       table-header-class="bg-primary text-white"
-      title="Înregistrări"
-      :data="clocks"
+      title="Angajati"
+      :data="employees"
       :columns="columns"
       :visible-columns="visibleColumns"
       color="primary"
       row-key="name"
       :filter="filter"
+      @row-click="onRowClick"
       no-data-label="Nu s-au găsit înregistrări de date"
     >
       <template v-slot:top-right>
@@ -25,6 +27,7 @@
           </template>
         </q-input>
         <q-btn
+          v-if="admin"
           color="primary"
           icon-right="archive"
           label="Genereaza raport CSV"
@@ -37,6 +40,7 @@
 </template>
 
 <script>
+import { mapState } from "vuex";
 import { exportFile } from "quasar";
 function wrapCsvValue(val, formatFn) {
   let formatted = formatFn !== void 0 ? formatFn(val) : val;
@@ -50,14 +54,17 @@ function wrapCsvValue(val, formatFn) {
 }
 
 export default {
-  props: ["clocks", "id"],
+  props: ["employees", "id"],
 
   methods: {
+    onRowClick(evt, row) {
+      console.log("clicked on", row.nume);
+    },
     exportTable() {
       // naive encoding to csv format
       const content = [this.columns.map((col) => wrapCsvValue(col.label))]
         .concat(
-          this.clocks.map((row) =>
+          this.employees.map((row) =>
             this.columns
               .map((col) =>
                 wrapCsvValue(
@@ -88,66 +95,78 @@ export default {
     return {
       filter: "",
 
-      visibleColumns: ["nume", "data", "ziua", "client", "timp", "task"],
+      showEditEmployee: false,
+      visibleColumns: ["codangajat", "Nume", "Prenume", "Telefon", "Email"],
       columns: [
         {
-          name: "nume",
-          label: "Nume Angajat",
+          name: "codangajat",
+          label: "Cod",
           align: "left",
-          field: (row) => row.nume.nume,
+          field: (row) => row.codangajat,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "data",
-          label: "Data",
+          name: "Nume",
+          label: "Nume ",
           align: "left",
-          field: (row) => row.data,
+          field: (row) => row.nume,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "ziua",
-          label: "Ziua",
+          name: "Prenume",
+          label: "Prenume",
           align: "left",
-          field: (row) => row.ziua,
+          field: (row) => row.prenume,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "client",
-          label: "Client",
+          name: "Telefon",
+          label: "Telefon",
           align: "left",
-          field: (row) => row.client.nume,
+          field: (row) => row.telefon,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "task",
-          label: "Sarcina",
+          name: "Email",
+          label: "Email",
           align: "left",
-          field: (row) => row.task.map((v) => v.nume).join(", "),
+          field: (row) => row.email,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "timp",
-          label: "Timp de lucru",
+          name: "Adresa",
+          label: "Adresa",
           align: "left",
-          field: (row) => row.timp + " ore",
+          field: (row) => row.adresa,
           format: (val) => `${val}`,
           sortable: true,
         },
         {
-          name: "cmt",
-          label: "Comentariu",
+          name: "Iban",
+          label: "Iban",
           align: "left",
-          field: (row) => row.cmt,
+          field: (row) => row.iban,
+          format: (val) => `${val}`,
+          sortable: true,
+        },
+        {
+          name: "Banca",
+          label: "Banca",
+          align: "left",
+          field: (row) => row.banca,
           format: (val) => `${val}`,
           sortable: true,
         },
       ],
     };
+  },
+  computed: {
+    ...mapState("auth", ["admin"]),
   },
 };
 </script>

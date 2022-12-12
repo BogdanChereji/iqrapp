@@ -4,6 +4,7 @@ import clients from "./store-clients";
 import auth from "./store-auth";
 import tasks from "./store-tasks";
 import clocks from "./store-clockin";
+import employees from "./store-employees";
 
 Vue.use(Vuex);
 
@@ -23,6 +24,7 @@ export default function (/* { ssrContext } */) {
       auth,
       tasks,
       clocks,
+      employees,
     },
 
     // enable strict mode (adds overhead!)

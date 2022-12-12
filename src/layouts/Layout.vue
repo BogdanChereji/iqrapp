@@ -109,6 +109,14 @@
         <q-expansion-item expand-separator icon="reorder" label="Nomenclatoare">
           <q-card>
             <q-card-section class="bg-primary">
+              <q-item to="/angajati" exact clickable>
+                <q-item-section avatar>
+                  <q-icon name="groups" />
+                </q-item-section>
+                <q-item-section>
+                  <q-item-label>Angajati</q-item-label>
+                </q-item-section>
+              </q-item>
               <q-item to="/clientstable" exact clickable>
                 <q-item-section avatar>
                   <q-icon name="groups" />

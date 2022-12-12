@@ -95,6 +95,7 @@
       <add-clockin
         :clients="arrayClients"
         :tasks="arrayTasks"
+        :employees="arrayEmployees"
         @close="showAddClockIn = false"
       />
     </q-dialog>
@@ -153,10 +154,14 @@ export default {
     ...mapGetters("clients", ["clients"]),
     ...mapGetters("tasks", ["tasks"]),
     ...mapGetters("clocks", ["clocks"]),
+    ...mapGetters("employees", ["employees"]),
     ...mapState("clocks", ["clocksDownloaded"]),
 
     arrayClients() {
       return Object.values(this.clients);
+    },
+    arrayEmployees() {
+      return Object.values(this.employees);
     },
     arrayTasks() {
       return Object.values(this.tasks);

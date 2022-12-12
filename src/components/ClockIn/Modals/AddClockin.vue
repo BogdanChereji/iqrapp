@@ -5,15 +5,16 @@
       <div class="row">
         <div class="col">
           <q-card-section class="q-pt-none">
-            <q-input
-              autofocus
+            <q-select
               outlined
-              dense
               v-model="clockToSubmit.nume"
-              label="Nume angajat"
+              map-options
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
-              lazy-rules
-              ref="nume"
+              ref="employee"
+              option-value="id"
+              option-label="nume"
+              label="Alege un angajat"
+              :options="employees"
             />
             <q-input
               outlined
@@ -100,7 +101,7 @@
 import { mapActions } from "vuex";
 import ModalHeader from "./Shared/ModalHeader.vue";
 export default {
-  props: ["clients", "tasks", "id"],
+  props: ["clients", "employees", "tasks", "id"],
   data() {
     return {
       clockToSubmit: {
@@ -111,7 +112,6 @@ export default {
         timp: "",
         cmt: "",
       },
-
       model: null,
       options: [
         "Luni",
@@ -127,9 +127,8 @@ export default {
   methods: {
     ...mapActions("clocks", ["addClock"]),
     submitForm() {
-      this.$refs.nume.validate();
-
-      if (!this.$refs.nume.hasError) {
+      this.$refs.employee.validate();
+      if (!this.$refs.employee.hasError) {
         this.submitClock();
       }
     },

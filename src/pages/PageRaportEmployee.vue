@@ -43,6 +43,7 @@
         <table-clocks
           :clocks="arrayClocks"
           :clients="arrayClients"
+          :employees="arrayEmployees"
           :tasks="arrayTasks"
         />
       </template>
@@ -56,6 +57,7 @@
     <q-dialog v-model="showAddClockIn">
       <add-clockin
         :clients="arrayClients"
+        :employees="arrayEmployees"
         :tasks="arrayTasks"
         @close="showAddClockIn = false"
       />
@@ -115,10 +117,14 @@ export default {
     ...mapGetters("clients", ["clients"]),
     ...mapGetters("tasks", ["tasks"]),
     ...mapGetters("clocks", ["clocks"]),
+    ...mapGetters("employees", ["employees"]),
     ...mapState("clocks", ["clocksDownloaded"]),
 
     arrayClients() {
       return Object.values(this.clients);
+    },
+    arrayEmployees() {
+      return Object.values(this.employees);
     },
     arrayTasks() {
       return Object.values(this.tasks);
