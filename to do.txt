@@ -8,3 +8,4 @@ Export tabele in excel -> 2 ore
 Creare Mod admin -> 1 ora 
 Limitare acces utilizator normal -> 2 ore. 
 Urcare server -> 3 ore 
+Nomenclator angajati + selecteaza angajatul la pontaj + scrie/citeste in tabel -> 3 ore 

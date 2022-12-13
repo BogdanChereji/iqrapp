@@ -66,7 +66,12 @@
 
               <q-item clickable v-close-popup to="/tasks">
                 <q-item-section>
-                  <q-item-label>Sarcini</q-item-label>
+                  <q-item-label>Servicii</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="/angajati">
+                <q-item-section>
+                  <q-item-label>Angajati</q-item-label>
                 </q-item-section>
               </q-item>
             </q-list>
@@ -130,7 +135,7 @@
                   <q-icon name="task" />
                 </q-item-section>
                 <q-item-section>
-                  <q-item-label>Sarcini</q-item-label>
+                  <q-item-label>Servicii</q-item-label>
                 </q-item-section>
               </q-item>
             </q-card-section>
