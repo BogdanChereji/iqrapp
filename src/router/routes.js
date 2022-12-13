@@ -15,6 +15,13 @@ const routes = [
     ],
   },
   {
+    path: "/edit-clocks",
+    component: () => import("layouts/Layout.vue"),
+    children: [
+      { path: "", component: () => import("pages/PageEditClocks.vue") },
+    ],
+  },
+  {
     path: "/clientstable",
     component: () => import("layouts/Layout.vue"),
     children: [

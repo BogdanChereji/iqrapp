@@ -35,6 +35,12 @@
                     size="md"
                     label="Setări profil"
                   />
+                  <q-btn
+                    to="/edit-clocks"
+                    color="primary"
+                    icon="edit"
+                    label="Editează"
+                  />
                 </div>
               </div>
             </q-card-section>
