@@ -88,7 +88,15 @@ export default {
     return {
       filter: "",
 
-      visibleColumns: ["nume", "data", "ziua", "client", "timp", "task"],
+      visibleColumns: [
+        "nume",
+        "data",
+        "ziua",
+        "client",
+        "timp",
+        "task",
+        "distanta",
+      ],
       columns: [
         {
           name: "nume",
@@ -124,7 +132,7 @@ export default {
         },
         {
           name: "task",
-          label: "Sarcina",
+          label: "Serviciu",
           align: "left",
           field: (row) => row.task.map((v) => v.nume).join(", "),
           format: (val) => `${val}`,
@@ -135,6 +143,14 @@ export default {
           label: "Timp de lucru",
           align: "left",
           field: (row) => row.timp + " ore",
+          format: (val) => `${val}`,
+          sortable: true,
+        },
+        {
+          name: "distanta",
+          label: "Distanta parcursa",
+          align: "left",
+          field: (row) => row.km + " km",
           format: (val) => `${val}`,
           sortable: true,
         },
