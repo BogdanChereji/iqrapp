@@ -73,6 +73,16 @@
               autofocus
               outlined
               dense
+              v-model="clockToSubmit.km"
+              label="Distanta parcursa"
+              :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
+              lazy-rules
+              ref="km"
+            />
+            <q-input
+              autofocus
+              outlined
+              dense
               v-model="clockToSubmit.cmt"
               label="Comentariu"
               ref="cmt"

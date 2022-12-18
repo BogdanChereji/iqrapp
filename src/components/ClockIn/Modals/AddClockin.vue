@@ -59,10 +59,19 @@
               multiple
               option-value="id"
               option-label="nume"
-              label="Alege o sarcina"
+              label="Alege un serviciu"
               :options="tasks"
             />
-
+            <q-input
+              autofocus
+              outlined
+              dense
+              v-model="clockToSubmit.km"
+              label="Distanta parcursa"
+              :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
+              lazy-rules
+              ref="km"
+            />
             <q-input
               autofocus
               outlined
@@ -110,6 +119,7 @@ export default {
         ziua: "",
         client: "",
         timp: "",
+        km: "",
         cmt: "",
       },
       model: null,
