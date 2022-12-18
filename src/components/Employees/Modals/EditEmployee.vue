@@ -85,7 +85,7 @@
       <q-card-actions align="right">
         <q-btn
           class="q-mb-lg q-mr-sm"
-          label="Editează clientul"
+          label="Actualizeaza angajatul"
           v-close-popup
           type="submit"
           color="primary"

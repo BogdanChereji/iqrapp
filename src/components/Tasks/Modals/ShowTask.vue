@@ -11,7 +11,7 @@
               readonly
               dense
               v-model="taskToSubmit.nume"
-              label="Denumire sarcină"
+              label="Denumire servicii"
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
               lazy-rules
               ref="nume"

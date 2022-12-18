@@ -1,6 +1,6 @@
 <template>
   <q-page padding>
-    <p>Dashboard</p>
+    <p>Dashboard - Pagina in lucru</p>
   </q-page>
 </template>
 

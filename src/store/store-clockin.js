@@ -22,6 +22,9 @@ const mutations = {
   deleteClock(state, id) {
     Vue.delete(state.clocks, id);
   },
+  deleteAllClock(state, id) {
+    Vue.delete(state.clocks, id);
+  },
   addClock(state, payload) {
     Vue.set(state.clocks, payload.id, payload.clock);
   },
@@ -38,6 +41,9 @@ const actions = {
   },
   deleteClock({ dispatch }, id) {
     dispatch("fbDeleteClock", id);
+  },
+  deleteAllClock({ dispatch }, id) {
+    dispatch("fbDeleteAllClock");
   },
   addClock({ dispatch }, clock) {
     let clockId = uid();
@@ -117,6 +123,15 @@ const actions = {
       }
     });
     Notify.create("Timp șters!");
+  },
+  fbDeleteAllClock({}) {
+    let userId = firebaseAuth.currentUser.uid;
+    let userClocks = ref(firebaseDb, "clocks/");
+    remove(userClocks, (error) => {
+      if (error) {
+      }
+    });
+    Notify.create("Totul a fost șters!");
   },
 };
 

@@ -56,7 +56,7 @@
           v-if="admin"
         />
         <q-route-tab>
-          <q-btn-dropdown color="primary" icon="business" label="Nomenclatoare">
+          <q-btn-dropdown color="primary" icon="reorder" label="Nomenclatoare">
             <q-list>
               <q-item clickable v-close-popup to="/clientstable">
                 <q-item-section>
@@ -67,6 +67,16 @@
               <q-item clickable v-close-popup to="/tasks">
                 <q-item-section>
                   <q-item-label>Servicii</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="/equips">
+                <q-item-section>
+                  <q-item-label>Echipamente</q-item-label>
+                </q-item-section>
+              </q-item>
+              <q-item clickable v-close-popup to="#">
+                <q-item-section disabled>
+                  <q-item-label>Stocuri</q-item-label>
                 </q-item-section>
               </q-item>
               <q-item clickable v-close-popup to="/angajati">
@@ -89,79 +99,103 @@
       show-if-above
       content-class="bg-primary"
     >
-      <q-list class="text-grey-2">
-        <q-item-label class="text-grey-2" header>
-          Meniu de navigare
-        </q-item-label>
-        <q-item to="/" exact clickable>
-          <q-item-section avatar>
-            <q-icon name="dashboard" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Dashboard</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-item to="/employee" exact clickable v-if="!admin">
-          <q-item-section avatar>
-            <q-icon name="badge" />
-          </q-item-section>
-          <q-item-section>
-            <q-item-label>Interfata angajat</q-item-label>
-          </q-item-section>
-        </q-item>
-        <q-separator />
-        <!-- Nomenclatoare -->
-        <q-expansion-item expand-separator icon="reorder" label="Nomenclatoare">
-          <q-card>
-            <q-card-section class="bg-primary">
-              <q-item to="/angajati" exact clickable>
-                <q-item-section avatar>
-                  <q-icon name="groups" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>Angajati</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item to="/clientstable" exact clickable>
-                <q-item-section avatar>
-                  <q-icon name="business" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>Clienți</q-item-label>
-                </q-item-section>
-              </q-item>
-              <q-item to="/Tasks" exact clickable>
-                <q-item-section avatar>
-                  <q-icon name="task" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>Servicii</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-        <!-- Rapoarte -->
-        <q-expansion-item
-          expand-separator
-          icon="article"
-          label="Rapoarte"
-          v-if="admin"
-        >
-          <q-card>
-            <q-card-section class="bg-primary">
-              <q-item to="/raportemp" exact clickable>
-                <q-item-section avatar>
-                  <q-icon name="summarize" />
-                </q-item-section>
-                <q-item-section>
-                  <q-item-label>Raport angajat</q-item-label>
-                </q-item-section>
-              </q-item>
-            </q-card-section>
-          </q-card>
-        </q-expansion-item>
-      </q-list>
+      <div>
+        <q-list class="text-grey-2">
+          <q-item-label class="text-grey-2" header>
+            Meniu de navigare
+          </q-item-label>
+          <q-item to="/" exact clickable>
+            <q-item-section avatar>
+              <q-icon name="dashboard" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Dashboard</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-item to="/employee" exact clickable v-if="!admin">
+            <q-item-section avatar>
+              <q-icon name="badge" />
+            </q-item-section>
+            <q-item-section>
+              <q-item-label>Interfata angajat</q-item-label>
+            </q-item-section>
+          </q-item>
+          <q-separator />
+          <!-- Nomenclatoare -->
+          <q-expansion-item
+            expand-separator
+            icon="reorder"
+            label="Nomenclatoare"
+          >
+            <q-card>
+              <q-card-section class="bg-primary">
+                <q-item to="/angajati" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="groups" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Angajati</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item to="/clientstable" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="business" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Clienți</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item to="/Tasks" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="task" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Servicii</q-item-label>
+                  </q-item-section>
+                </q-item>
+                <q-item to="/Equips" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="settings_input_hdmi" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Echipamente</q-item-label>
+                  </q-item-section>
+                </q-item>
+
+                <q-item to="#" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="inventory" />
+                  </q-item-section>
+                  <q-item-section disabled>
+                    <q-item-label>Stocuri</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+          <!-- Rapoarte -->
+          <q-expansion-item
+            expand-separator
+            icon="article"
+            label="Rapoarte"
+            v-if="admin"
+          >
+            <q-card>
+              <q-card-section class="bg-primary">
+                <q-item to="/raportemp" exact clickable>
+                  <q-item-section avatar>
+                    <q-icon name="summarize" />
+                  </q-item-section>
+                  <q-item-section>
+                    <q-item-label>Raport angajat</q-item-label>
+                  </q-item-section>
+                </q-item>
+              </q-card-section>
+            </q-card>
+          </q-expansion-item>
+        </q-list>
+        <div class="absolute-bottom vers"><p>Versiune 0.1</p></div>
+      </div>
     </q-drawer>
 
     <q-page-container>
@@ -219,5 +253,9 @@ export default {
   .q-router-link--exact-active {
     color: #ff7700 !important;
   }
+}
+.vers {
+  text-align: center;
+  color: #ffffff;
 }
 </style>

@@ -3,8 +3,10 @@ import Vuex from "vuex";
 import clients from "./store-clients";
 import auth from "./store-auth";
 import tasks from "./store-tasks";
+import equips from "./store-equip";
 import clocks from "./store-clockin";
 import employees from "./store-employees";
+import inventorys from "./store-inventory";
 
 Vue.use(Vuex);
 
@@ -23,6 +25,8 @@ export default function (/* { ssrContext } */) {
       clients,
       auth,
       tasks,
+      equips,
+      inventorys,
       clocks,
       employees,
     },

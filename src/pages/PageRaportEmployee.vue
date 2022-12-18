@@ -39,7 +39,7 @@
                     to="/edit-clocks"
                     color="primary"
                     icon="edit"
-                    label="Editează"
+                    label="Info/ Sterge"
                   />
                 </div>
               </div>

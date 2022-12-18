@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <modal-header>Adaugă o sarcină nouă</modal-header>
+    <modal-header>Adaugă un serviciu nou</modal-header>
     <form @submit.prevent="submitForm">
       <div class="row">
         <div class="col">
@@ -10,7 +10,7 @@
               outlined
               dense
               v-model="taskToSubmit.nume"
-              label="Denumire sarcină"
+              label="Denumire servicii"
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
               lazy-rules
               ref="nume"
@@ -27,7 +27,7 @@
       <q-card-actions align="right">
         <q-btn
           class="q-mb-lg q-mr-sm"
-          label="Adaugă sarcina"
+          label="Adaugă serviciu"
           v-close-popup
           type="submit"
           color="primary"

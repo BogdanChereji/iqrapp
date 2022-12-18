@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <modal-header>Actualizeaza serviciul existent</modal-header>
+    <modal-header>Editează echipamentul existent</modal-header>
     <form @submit.prevent="submitForm">
       <div class="row">
         <div class="col">
@@ -9,15 +9,15 @@
               autofocus
               outlined
               dense
-              v-model="taskToSubmit.nume"
-              label="Denumire servicii"
+              v-model="equipToSubmit.nume"
+              label="Denumire echipament"
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
               lazy-rules
               ref="nume"
             />
             <q-input
-              v-model="taskToSubmit.text"
-              label="Adăugați instrucțiuni"
+              v-model="equipToSubmit.text"
+              label="Adăugați detalii tehnice"
               filled
               type="textarea"
               ref="text"
@@ -28,7 +28,7 @@
       <q-card-actions align="right">
         <q-btn
           class="q-mb-lg q-mr-sm"
-          label="Actualizeaza serviciul"
+          label="Actualizeaza echipamentul"
           v-close-popup
           type="submit"
           color="primary"
@@ -41,23 +41,23 @@
 <script>
 import { mapActions } from "vuex";
 export default {
-  props: ["task", "id"],
+  props: ["equip", "id"],
   data() {
     return {
-      taskToSubmit: {},
+      equipToSubmit: {},
     };
   },
   methods: {
-    ...mapActions("tasks", ["updateTask"]),
+    ...mapActions("equips", ["updateEquip"]),
     submitForm() {
       this.$refs.nume.validate();
 
       if (!this.$refs.nume.hasError) {
-        this.submitTask();
+        this.submitEquip();
       }
     },
-    submitTask() {
-      this.updateTask({ id: this.id, updates: this.taskToSubmit }),
+    submitEquip() {
+      this.updateEquip({ id: this.id, updates: this.equipToSubmit }),
         this.$emit("close");
     },
   },
@@ -66,7 +66,7 @@ export default {
       .default,
   },
   mounted() {
-    this.taskToSubmit = Object.assign({}, this.task);
+    this.equipToSubmit = Object.assign({}, this.equip);
   },
 };
 </script>

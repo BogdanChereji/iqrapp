@@ -1,6 +1,6 @@
 <template>
   <q-card>
-    <modal-header>Actualizeaza serviciul existent</modal-header>
+    <modal-header>Adaugă un echipament nou</modal-header>
     <form @submit.prevent="submitForm">
       <div class="row">
         <div class="col">
@@ -9,18 +9,17 @@
               autofocus
               outlined
               dense
-              v-model="taskToSubmit.nume"
-              label="Denumire servicii"
+              v-model="equipToSubmit.nume"
+              label="Denumire echipament"
               :rules="[(val) => !!val || `Câmpul este obligatoriu`]"
               lazy-rules
               ref="nume"
             />
             <q-input
-              v-model="taskToSubmit.text"
-              label="Adăugați instrucțiuni"
+              v-model="equipToSubmit.text"
+              label="Adăugați detalii tehnice"
               filled
               type="textarea"
-              ref="text"
             />
           </q-card-section>
         </div>
@@ -28,7 +27,7 @@
       <q-card-actions align="right">
         <q-btn
           class="q-mb-lg q-mr-sm"
-          label="Actualizeaza serviciul"
+          label="Adaugă echipamentul"
           v-close-popup
           type="submit"
           color="primary"
@@ -40,33 +39,33 @@
 
 <script>
 import { mapActions } from "vuex";
+import ModalHeader from "./Shared/ModalHeader.vue";
 export default {
-  props: ["task", "id"],
   data() {
     return {
-      taskToSubmit: {},
+      equipToSubmit: {
+        nume: "",
+        text: "",
+      },
     };
   },
   methods: {
-    ...mapActions("tasks", ["updateTask"]),
+    ...mapActions("equips", ["addEquip"]),
     submitForm() {
       this.$refs.nume.validate();
 
       if (!this.$refs.nume.hasError) {
-        this.submitTask();
+        this.submitEquip();
       }
     },
-    submitTask() {
-      this.updateTask({ id: this.id, updates: this.taskToSubmit }),
-        this.$emit("close");
+    submitEquip() {
+      this.addEquip(this.equipToSubmit);
+      this.$emit("close");
     },
   },
   components: {
     "modal-header": require("components/Clients/Modals/Shared/ModalHeader.vue")
       .default,
-  },
-  mounted() {
-    this.taskToSubmit = Object.assign({}, this.task);
   },
 };
 </script>

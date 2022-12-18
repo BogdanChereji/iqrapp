@@ -68,6 +68,8 @@ const actions = {
         this.$router.push("/").catch((err) => {});
         dispatch("clients/fbReadData", null, { root: true });
         dispatch("tasks/fbReadData", null, { root: true });
+        dispatch("equips/fbReadData", null, { root: true });
+        dispatch("inventorys/fbReadData", null, { root: true });
         dispatch("clocks/fbReadData", null, { root: true });
         dispatch("employees/fbReadData", null, { root: true });
       } else {
@@ -75,6 +77,8 @@ const actions = {
         commit("clocks/clearClocks", null, { root: true });
         commit("clients/clearClients", null, { root: true });
         commit("tasks/clearTasks", null, { root: true });
+        commit("equips/clearEquips", null, { root: true });
+        commit("inventorys/clearInventorys", null, { root: true });
         commit("setAdmin", false);
         LocalStorage.set("admin", false);
         commit("setLoggedIn", false);

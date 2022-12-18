@@ -39,6 +39,18 @@ const routes = [
     children: [{ path: "", component: () => import("pages/PageTasks.vue") }],
   },
   {
+    path: "/equips",
+    component: () => import("layouts/Layout.vue"),
+    children: [{ path: "", component: () => import("pages/PageEquips.vue") }],
+  },
+  {
+    path: "/inventar",
+    component: () => import("layouts/Layout.vue"),
+    children: [
+      { path: "", component: () => import("pages/PageInventorys.vue") },
+    ],
+  },
+  {
     path: "/employee",
     component: () => import("layouts/Layout.vue"),
     children: [{ path: "", component: () => import("pages/PageEmployee.vue") }],
